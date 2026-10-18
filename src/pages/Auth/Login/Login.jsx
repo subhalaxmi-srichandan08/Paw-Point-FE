@@ -12,6 +12,7 @@ import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import useAuthStore from "../../../store/authStore";
 import "./Login.css";
+import { DogFace, CatFace } from "./Petfaces";
 import authService from "../../../services/authService";
 import { validateLogin } from "../../../utils/validators";
 const initialState = {
@@ -98,15 +99,21 @@ function Login() {
             <div className="login-left">
                 <FaPaw className="paw-icon" />
                 <h1>PawPoint</h1>
-                <h2>A Better World for Your Best Friend ❤️</h2>
+                <h2>A Better World for Your Best Friend</h2>
+                <div className="hero-words" aria-hidden="true">
+                    <span>Woof.</span>
+                    <span>Meow.</span>
+                </div>
                 <p>
-                    Your pet’s happy place starts here. Discover their favorite treats, playful toys, and everyday essentials — all in one place.
+                    Treats, toys and everyday essentials for dogs and cats, all in one place.
                 </p>
-                <ul>
-                    <li>🐶 Tail-Wagging Goodies</li>
-                    <li>🧸 Toys for Every Playful Paw</li>
-                    <li>❤️ Everything They Love, All in One Place</li>
-                </ul>
+                <span className="delivery-badge">
+                    Free delivery over ₹499
+                </span>
+                <div className="pet-faces" aria-hidden="true">
+                    <DogFace />
+                    <CatFace />
+                </div>
             </div>
             <div className="login-right">
                 <form
