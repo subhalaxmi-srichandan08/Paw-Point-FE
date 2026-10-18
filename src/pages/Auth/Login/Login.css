@@ -4,56 +4,109 @@
 *{
     box-sizing:border-box;
 }
-.login-page{
-    min-height:calc(100vh - 80px);
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    background:linear-gradient(
-        135deg,
-        #f6fbff,
-        #eef5ff
-    );
+.login-page {.login-left .paw-icon {
+    font-size: 90px;
+    margin-top: 20px;
+}
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: linear-gradient(135deg, #f6fbff, #eef5ff);
 }
 /* ===========================
         LEFT SECTION
 =========================== */
 .login-left{
+    height:100%;
+    position:relative;
+    overflow:hidden;
+    container-type:inline-size;
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
     text-align:center;
-    /* padding:70px; */
+    /* padding:48px 40px 0; */
     color:white;
-  background: linear-gradient(135deg, #3F9C9A, #438CA3, #647CB4);
+    background: linear-gradient(135deg, #3F9C9A, #438CA3, #647CB4);
 }
+/* faint paw-print texture */
+.login-left::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='110' viewBox='0 0 110 110'%3E%3Cg fill='%23FFFAEE' fill-opacity='.10'%3E%3Cellipse cx='55' cy='68' rx='15' ry='12'/%3E%3Ccircle cx='37' cy='48' r='6'/%3E%3Ccircle cx='49' cy='38' r='6'/%3E%3Ccircle cx='62' cy='38' r='6'/%3E%3Ccircle cx='74' cy='48' r='6'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:110px 110px;
+}
+.login-left > *{
+    position:relative;
+}
+/* ---- kept from your original design ---- */
 .login-left .paw-icon{
     font-size:90px;
-    margin-bottom:25px;
+    margin-top:20px;
 }
 .login-left h1{
     font-size:48px;
     font-weight:700;
-    margin-bottom:10px;
+    margin:0 0 10px;
 }
 .login-left h2{
     font-size:30px;
+    margin:0 0 26px;
+}
+/* ---- new ---- */
+.hero-words{
+    display:flex;
+    gap:.25em;
+    justify-content:center;
+    font-weight:800;
+    line-height:1;
+    letter-spacing:-.01em;
+    font-size:clamp(2.8rem, 11cqw, 5rem);
     margin-bottom:20px;
+}
+.hero-words span:first-child{
+    color:#FFFAEE;
+}
+.hero-words span:last-child{
+    color:#F7B84B;
 }
 .login-left p{
     max-width:420px;
+    margin:0;
     font-size:18px;
     line-height:1.7;
     opacity:.95;
 }
-.login-left ul{
-    margin-top:35px;
-    list-style:none;
-    padding:0;
+.delivery-badge{
+    display:inline-block;
+    margin-top:22px;
+    background:#F7B84B;
+    color:#16272B;
+    font-size:14px;
+    font-weight:700;
+    padding:8px 16px;
+    border-radius:999px;
 }
-.login-left li{
-    margin:15px 0;
-    font-size:18px;
+.pet-faces{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    pointer-events:none;
+}
+.pet-faces svg {
+    width: min(36%, 160px);
+    height: auto;
+    margin-bottom: -28px;
+}
+.pet-faces svg:first-child{
+    transform:rotate(-4deg);
+}
+.pet-faces svg:last-child{
+    transform:rotate(5deg);
+    margin-left:-4%;
 }
 /* ===========================
         RIGHT SECTION
@@ -62,12 +115,13 @@
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:60px;
+    /* padding:60px; */
 }
 /* ===========================
           CARD
 =========================== */
 .login-card{
+    height:90vh;
     width:100%;
     max-width:480px;
     background:rgba(255,255,255,.88);
@@ -273,7 +327,7 @@
         grid-template-columns:1fr;
     }
     .login-left{
-        padding:45px;
+        padding:45px 45px 0;
     }
 }
 @media(max-width:600px){
