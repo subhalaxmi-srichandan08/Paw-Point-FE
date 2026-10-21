@@ -78,7 +78,7 @@ function Login() {
             toast.success(
                 "Google sign in successful."
             );
-            navigate("/", {
+            navigate("/home", {
                 replace: true
             });
         } catch (error) {
