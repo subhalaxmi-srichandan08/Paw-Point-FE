@@ -37,6 +37,7 @@ function Login() {
         setErrors(validateLogin(updatedForm));
     };
     const handleSubmit = async (e) => {
+        console.log("hiii")
         e.preventDefault();
         const validation = validateLogin(form);
         if (Object.keys(validation).length) {
@@ -46,12 +47,13 @@ function Login() {
         try {
             setLoading(true);
             const response = await authService.login(form);
+            console.log("Login response:", response);
             setAuth(
                 response.data.data.user,
                 response.data.data.accessToken
             );
             toast.success(response.message);
-            navigate("/");
+            navigate("/products");
         }
         catch (error) {
             toast.error(
@@ -118,7 +120,6 @@ function Login() {
             <div className="login-right">
                 <form
                     className="login-card"
-                    onSubmit={handleSubmit}
                 >
                     <h2>Sign In</h2>
                     <p className="subtitle">
@@ -193,6 +194,7 @@ function Login() {
                     <button
                         className="login-btn"
                         disabled={loading}
+                        onClick={handleSubmit}
                     >
                         {
                             loading
