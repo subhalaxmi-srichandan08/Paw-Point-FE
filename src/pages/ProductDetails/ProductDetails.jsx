@@ -13,7 +13,7 @@ import useCartStore from "../../store/cartStore";
 import ProductDetailsSkeleton from "../../components/Skeletons/ProductDetailsSkeleton";
 
 function ProductDetails() {
-    const { slug } = useParams();
+    const { id } = useParams();
 
     const [product, setProduct] = useState(null);
     const [relatedProducts, setRelatedProducts] = useState([]);
@@ -24,7 +24,7 @@ function ProductDetails() {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const res = await productService.getProduct(slug);
+                const res = await productService.getProductById(id);
 
                 const data = res.data.data;
 
@@ -44,7 +44,7 @@ function ProductDetails() {
         };
 
         fetchProduct();
-    }, [slug]);
+    }, [id]);
     const fetchCart = useCartStore(state => state.fetchCart);
     
     if (loading) {

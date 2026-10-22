@@ -26,7 +26,7 @@ function AppRoutes() {
             <Route path="/reset-password/:token" element={<ResetPassword />} />
 
             <Route path="/cart" element={<Cart />} />
-            <Route path="/products/:slug" element={<ProductDetails />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/profile" element={<Profile />} />
 

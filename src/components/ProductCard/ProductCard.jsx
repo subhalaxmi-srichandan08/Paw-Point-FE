@@ -153,7 +153,7 @@ function ProductCard({ product }) {
 </button>
 
             <Link
-                to={`/products/${slug}`}
+                to={`/products/${_id}`}
                 className="product-image"
             >
 
@@ -187,7 +187,7 @@ function ProductCard({ product }) {
                 </p>
 
                 <Link
-                    to={`/products/${slug}`}
+                    to={`/products/${_id}`}
                     className="product-name"
                 >
 

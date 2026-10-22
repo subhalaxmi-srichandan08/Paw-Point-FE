@@ -37,7 +37,6 @@ function Login() {
         setErrors(validateLogin(updatedForm));
     };
     const handleSubmit = async (e) => {
-        console.log("hiii")
         e.preventDefault();
         const validation = validateLogin(form);
         if (Object.keys(validation).length) {
@@ -47,7 +46,6 @@ function Login() {
         try {
             setLoading(true);
             const response = await authService.login(form);
-            console.log("Login response:", response);
             setAuth(
                 response.data.data.user,
                 response.data.data.accessToken
@@ -80,7 +78,7 @@ function Login() {
             toast.success(
                 "Google sign in successful."
             );
-            navigate("/home", {
+            navigate("/products", {
                 replace: true
             });
         } catch (error) {

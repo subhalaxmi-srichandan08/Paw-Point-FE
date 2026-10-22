@@ -58,7 +58,6 @@ function Wishlist() {
         }
 
     };
-console.log(wishlist);
     if (!wishlist.length) {
 
         return (

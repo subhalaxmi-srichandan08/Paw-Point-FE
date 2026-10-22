@@ -3,8 +3,8 @@ import api from "../api/axios";
 const getProducts = params =>
     api.get("/products", { params });
 
-const getProduct = slug =>
-    api.get(`/products/${slug}`);
+const getProductById = (id) =>
+    api.get(`/products/${id}`);
 
 const getSuggestions = q =>
     api.get("/products/suggestions", {
@@ -27,7 +27,7 @@ const getSearchSuggestions = async (query) => {
 
 export default {
     getProducts,
-    getProduct,
+    getProductById,
     getSuggestions,
     getSearchSuggestions
 };

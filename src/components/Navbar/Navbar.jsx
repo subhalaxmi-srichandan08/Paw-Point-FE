@@ -602,9 +602,9 @@ function Navbar() {
 
                 <nav className="navbar-nav">
 
-                    <Link to="/">
+                    {/* <Link to="/">
                         Home
-                    </Link>
+                    </Link> */}
 
 
                     <Link to="/products?pet=Dog">
@@ -618,7 +618,7 @@ function Navbar() {
 
 
                     <Link to="/products">
-                        Products
+                        Home
                     </Link>
 
 

@@ -45,7 +45,6 @@ function ShopByPet() {
     }, []);
 
     const handleClick = (pet) => {
-        console.log("Clicked:", pet);
         navigate(`/products?pet=${pet}`);
     };
 
