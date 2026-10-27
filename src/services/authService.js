@@ -24,7 +24,10 @@ const forgotPassword = data =>
     api.post("/auth/forgot-password", data);
 
 const resetPassword = (token, data) =>
-    api.post(`/auth/reset-password/${token}`, data);
+    api.post(
+        `/auth/reset-password/${token}`,
+        data
+    );
 
 export default {
     register,
