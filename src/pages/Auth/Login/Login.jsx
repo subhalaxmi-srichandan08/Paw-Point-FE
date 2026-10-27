@@ -36,64 +36,84 @@ function Login() {
         setForm(updatedForm);
         setErrors(validateLogin(updatedForm));
     };
-    const handleSubmit = async (e) => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        const validation = validateLogin(form);
-        if (Object.keys(validation).length) {
-            setErrors(validation);
-            return;
-        }
+
         try {
             setLoading(true);
-            const response = await authService.login(form);
+
+            const response =
+                await authService.login(form);
+
             setAuth(
                 response.data.data.user,
                 response.data.data.accessToken
             );
+
             toast.success(response.message);
+
             navigate("/products");
-        }
-        catch (error) {
+
+        } catch (error) {
+
             toast.error(
                 error.response?.data?.message ||
                 "Login failed."
             );
-        }
-        finally {
-            setLoading(false);
-        }
-    };
-    const handleGoogleLogin = async (credentialResponse) => {
-        try {
-            setLoading(true);
-            const response =
-                await authService.googleLogin(
-                    credentialResponse.credential
-                );
-            const data = response.data.data;
-            setAuth(
-                data.user,
-                data.accessToken
-            );
-            toast.success(
-                "Google sign in successful."
-            );
-            navigate("/products", {
-                replace: true
-            });
-        } catch (error) {
-            console.error(
-                "Google login error:",
-                error
-            );
-            toast.error(
-                error.response?.data?.message ||
-                "Google sign in failed."
-            );
+
         } finally {
             setLoading(false);
         }
     };
+
+    const handleGoogleLogin =
+        async credentialResponse => {
+
+            try {
+
+                setLoading(true);
+
+                const response =
+                    await authService.googleLogin(
+                        credentialResponse.credential
+                    );
+
+                const data =
+                    response.data.data;
+
+                setAuth(
+                    data.user,
+                    data.accessToken
+                );
+
+                toast.success(
+                    "Google sign in successful."
+                );
+
+                navigate(
+                    "/products",
+                    { replace: true }
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Google login error:",
+                    error
+                );
+
+                toast.error(
+                    error.response?.data?.message ||
+                    "Google sign in failed."
+                );
+
+            } finally {
+
+                setLoading(false);
+
+            }
+        };
+
     return (
         <section className="login-page">
             <div className="login-left">
